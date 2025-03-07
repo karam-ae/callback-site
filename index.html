@@ -10,10 +10,12 @@
             const code = params.get('code');
             
             if (code) {
-                // إرسال الكود إلى التطبيق الخاص بك عبر بروتوكول مخصص
-                window.location.href = `myapp://callback?code=${code}`;
+                // عرض الكود في الصفحة
+                document.body.innerHTML = `<h1>Authorization Successful</h1><p>Your code is: <strong>${code}</strong></p>`;
+                
+                // يمكن إرسال الكود تلقائيًا إلى نقطة نهاية داخل تطبيقك هنا إذا كان ممكناً
             } else {
-                document.body.innerHTML = "<h1>Authorization Failed</h1><p>No code found!</p>";
+                document.body.innerHTML = "<h1>Authorization Failed</h1><p>No code found in the URL.</p>";
             }
         }
     </script>
