@@ -10,10 +10,7 @@
             const code = params.get('code');
             
             if (code) {
-                // عرض الرمز في الصفحة
-                document.body.innerHTML = `<h1>Authorization Successful</h1><p>Your code is: <strong>${code}</strong></p>`;
-                
-                // إرسال الكود إلى تطبيقك إذا كان يدعم Custom Protocol
+                // إرسال الكود إلى التطبيق الخاص بك عبر بروتوكول مخصص
                 window.location.href = `myapp://callback?code=${code}`;
             } else {
                 document.body.innerHTML = "<h1>Authorization Failed</h1><p>No code found!</p>";
