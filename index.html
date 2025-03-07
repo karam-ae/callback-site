@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patreon Callback</title>
     <script>
-        function handleAuthorizationCode() {
+        function displayCode() {
             const params = new URLSearchParams(window.location.search);
             const code = params.get('code');
             if (code) {
-                // إعادة توجيه مع الكود للتطبيق
-                window.location.href = `myapp://callback?code=${code}`;
+                document.getElementById('code').innerText = code;
             } else {
-                document.body.innerHTML = "<h1>No code found!</h1>";
+                document.getElementById('code').innerText = "No code found!";
             }
         }
     </script>
 </head>
-<body onload="handleAuthorizationCode()">
-    <h1>Processing Authorization...</h1>
+<body onload="displayCode()">
+    <h1>Authorization Code</h1>
+    <p>Your code is: <span id="code" style="font-weight: bold;"></span></p>
 </body>
 </html>
